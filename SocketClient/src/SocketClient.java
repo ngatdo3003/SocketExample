@@ -39,7 +39,7 @@ public class SocketClient {
             outputStream.flush();
             String serverResponse;
             while ((serverResponse = inputStream.readLine()) != null) {
-                System.out.println("Server: " + serverResponse);
+                System.out.println("Server send: " + serverResponse);
                 if (serverResponse.indexOf("EXIT SUCCESSFULLY") != -1) {
                     break;
                 }

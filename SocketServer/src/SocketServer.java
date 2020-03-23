@@ -20,7 +20,9 @@ public class SocketServer {
         Socket socketOfServer = null;
 
         try {
+            System.out.println("Server is waiting to accept user...");
             listener = new ServerSocket(8081);
+            System.out.println("Accept a client!");
         } catch (IOException e) {
             System.out.println(e);
             System.exit(1);
@@ -33,6 +35,7 @@ public class SocketServer {
 
             while (true) {
                 String clientResponse = inputStream.readLine();
+                System.out.println("Client send: " + clientResponse);
                 if (clientResponse.equals("EXIT")) {
                     outputStream.write("EXIT SUCCESSFULLY");
                     outputStream.newLine();
@@ -40,6 +43,7 @@ public class SocketServer {
                     break;
                 }
                 else {
+
                     String mssv = clientResponse;
                     String serverResponse;
                     int index = studentList.indexOf(new Student(mssv));
